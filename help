@@ -1,0 +1,119 @@
+// 2-Player WiiGuitar script for Frets on Fire
+// Made by rednano12(edited by anthman852)
+// Based off of mdvalenz's scripts on the WiiLi Forums,
+// You can change this script to use for Freetar Hero or any other app
+// with WiiGuitar
+
+// P1 Settings
+
+// Change your settings to match these
+// 1st Pick: Down
+// Secondary Pick: Up
+// Green Fret: 1
+// Red Fret: 2
+// Yellow Fret: 3
+// Blue Fret: 4
+// Purple/Pink/Orange Fret: 5
+// Move Left: Left
+// Move Right: Right
+// Move Up: B
+// Move Down: V
+// Cancel: Escape
+// Jurgen Power (If you have it): Q
+// Killswitch: RightAlt
+
+// Strumming
+Key.Down = Wiimote1.Classic.Down
+Key.Up = Wiimote1.Classic.Up
+
+// Frets
+Key.One = Wiimote1.Classic.a
+Key.Two = Wiimote1.Classic.b
+Key.Three = Wiimote1.Classic.x
+Key.Four = Wiimote1.Classic.y
+Key.Five = Wiimote1.Classic.ZL
+
+//Analog Stick Controls (for menus)
+Key.Left = Wiimote1.Classic.Joy1X <= -20%
+Key.Right = Wiimote1.Classic.Joy1X >= 20%
+Key.B = Wiimote1.Classic.Joy1Y <= -20%
+Key.V = Wiimote1.Classic.Joy1Y >= 20%
+
+//Escape
+Key.Escape = Wiimote1.Classic.Plus
+
+//Jurgen Power
+Key.Q = Wiimote1.Classic.Minus
+if |wiimote1.RelAcc| >= 5 and (not var.jurgen1) then
+ var.jurgen1 = true
+ press(Q)
+ wait 100 ms
+ release(Q)
+ wait 100 ms
+ var.jurgen1 = false
+end if
+
+// Home ends the program
+Key.Shift+P+I+E = Wiimote1.Home
+
+//Killswitch
+Key.RightAlt = (0.52 < Wiimote1.Classic.R < 0.84)
+
+
+Wiimote1.Leds = 1
+
+// P2 Settings
+
+// Change your settings to match these
+// 1st Pick: F9
+// Secondary Pick: F10
+// Green Fret: F1
+// Red Fret: F2
+// Yellow Fret: F3
+// Blue Fret: F4
+// Purple/Pink/Orange Fret: F5
+// Move Left: A
+// Move Right: D
+// Move Up: W
+// Move Down: S
+// Cancel: F8
+// Jurgen Power (If you have it): Right Ctrl
+// Killswitch: LeftAlt
+
+// Strumming
+Key.F9 = Wiimote2.Classic.Down
+Key.F10 = Wiimote2.Classic.Up
+
+// Frets
+Key.F1 = Wiimote2.Classic.a
+Key.F2 = Wiimote2.Classic.b
+Key.F3 = Wiimote2.Classic.x
+Key.F4 = Wiimote2.Classic.y
+Key.F5 = Wiimote2.Classic.ZL
+
+//Analog Stick Controls (for menus)
+Key.A = Wiimote2.Classic.Joy1X <= -20%
+Key.D = Wiimote2.Classic.Joy1X >= 20%
+Key.W = Wiimote2.Classic.Joy1Y <= -20%
+Key.S = Wiimote2.Classic.Joy1Y >= 20%
+
+//Escape
+Key.F8 = Wiimote2.Classic.Plus
+
+//Jurgen Power
+Key.Z = Wiimote2.Classic.Minus
+if |wiimote2.RelAcc| >= 5 and (not var.jurgen2) then
+ var.jurgen2 = true
+ press(Z)
+ wait 100 ms
+ release(Z)
+ wait 100 ms
+ var.jurgen2 = false
+end if
+
+//Killswitch
+Key.LeftAlt = (0.52 < Wiimote2.Classic.R < 0.84)
+
+Wiimote2.Leds = 2
+
+Key.Shift+P+I+E = Wiimote2.Home
